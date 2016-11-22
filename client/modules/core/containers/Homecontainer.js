@@ -1,7 +1,7 @@
 import { useDeps, composeWithTracker, composeAll } from 'mantra-core';
 import Component from '../components/Home.jsx';
 
-
+// the composer function
 export const composer = ({ context }, onData) => {
   const { apolloClient, gql } = context();
 
@@ -15,9 +15,11 @@ export const composer = ({ context }, onData) => {
         }
       }
     `,
+    // the number of posts to be returned
     variables: {
       limit: 20,
     },
+    // checking for every half a second
     pollInterval: 500,
   });
 
@@ -28,7 +30,7 @@ export const composer = ({ context }, onData) => {
           console.log(error.message);
         });
       }
-
+      // if data is present then return the posts
       if (data.posts) {
         onData(null, { posts: data.posts });
       }

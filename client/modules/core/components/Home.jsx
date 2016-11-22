@@ -1,7 +1,9 @@
 import React from 'react';
-
+// the formsubmit container
 import Formsubmit from '../containers/formsubmitcontainer.js';
 
+//if there are posts ==> display them..
+// if not Display there are no posts
 const renderPosts = (posts) => {
   if (posts && posts.length > 0) {
     return (
@@ -25,6 +27,7 @@ const Home = ({posts}) => (
 		<h3 style={{textAlign: 'center'}}>Mantra Meteor Apollo Starterkit</h3>
 		<Formsubmit />
 		<div style={{height: 100}}/>
+    {/* the const function that displays the posts */}
 		{renderPosts(posts)}
 	</div>
 )
